@@ -22,9 +22,10 @@ print("You have",turns_allowed-turns_taken, "turns left. GOOD LUCK!")
 
 #creating a loop 
 while turns_taken<turns_allowed:
+    
     guess = input("Please enter a word:").lower()
     if len(guess) != len(word_to_guess) or not guess.isalpha():
-        print("Please enter a 5-letter word:")
+        print("Please enter a 4-letter word:")
         continue
 #checking each letter in the guess against the word to be guessed
     index = 0
@@ -57,3 +58,10 @@ while turns_taken<turns_allowed:
         break
 #displaying number of turns left and asking for a guess
     print("You have", turns_allowed-turns_taken, "number of turns left")
+#modified game to use different letter length of words
+#creating hard, medium, and easy levels for the game
+
+#for the medium level, there will be no list, and the player will have five guesses
+#for the hard level, ask a question that will be answered with the word to guess and give ten tries
+
+#for the easy level, the game will give the list of words the player is supposed to guess from, the player will have five guesses

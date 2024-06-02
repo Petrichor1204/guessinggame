@@ -129,5 +129,3 @@ print(ppp)
 greet = "hello world"
 trt=greet.upper()
 print(trt)
-
-
