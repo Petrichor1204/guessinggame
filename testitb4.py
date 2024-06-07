@@ -18,9 +18,13 @@ print(f"Welcome to GUESSING GENIUS, {username}!")
 print(f"In this game, you are going to guess a word with 4 letters")
 game_level = ["1","2","3"]
 print("GAME LEVELS:\n 1. EASY \n  2. MEDIUM \n 3. HARD \n ")
-level_choice = input("ENTER GAME LEVEL NUMBER 1,2, OR 3:").strip()
 print("\n")
 
+while True:
+    level_choice = input("Enter game level (1, 2, or 3): ").strip()
+    if level_choice in game_level:
+        break
+    print("Invalid level choice. Please try again.")
 
 #creating a loop to help user choose levels of difficulty
 if level_choice == "1":
@@ -34,25 +38,28 @@ elif level_choice == "2":
 elif level_choice == "3":
     word_to_guess = "lion"
     turns_allowed = 3
-if level_choice not in game_level:
-    print("Please enter game level (1, 2, or, 3)")
-   
+
 #checking each letter in the guess against the word to be guessed
 while turns_taken<turns_allowed:
     print(f"You have {turns_allowed-turns_taken} turn(s) left. GOOD LUCK!")
+    
     if level_choice == "1":
         print(words)
         guess = input("Please guess a word from this list of words:").lower()
+        if len(guess) != 4 or not guess.isalpha():
+            print("PLEASE ENTER A 4-LETTER WORD")    
+            continue    
     elif level_choice == "2":
         print("Please answer the question with a 4-letter word:")
         guess = input("A 4-lettered item found in the bedroom:").lower() 
+        if len(guess) != 4 or not guess.isalpha():
+            print("PLEASE ENTER A 4-LETTER WORD")    
+            continue
     elif level_choice == "3":
         guess = input("Please guess a four-letter word:").lower()        
-    
-    if len(guess) != 4 or not guess.isalpha():
-        print("Please enter a 4-letter word:")    
-        continue    
-
+        if len(guess) != 4 or not guess.isalpha():
+            print("PLEASE ENTER A 4-LETTER WORD")    
+            continue        
     index = 0
     for c in guess:
         if c == word_to_guess[index]:
